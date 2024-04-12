@@ -1,5 +1,4 @@
 from adjutant.actions.utils import validate_steps
-from adjutant.actions.v1 import serializers
 from adjutant.actions.v1.base import BaseAction, ProjectMixin
 from adjutant.api import models, utils
 from adjutant.api.v1.base import BaseDelegateAPI
@@ -8,6 +7,7 @@ from adjutant.tasks.v1.base import BaseTask
 
 from designateclient.v2 import client as designateclient
 from django.utils import timezone
+from rest_framework import serializers
 from rest_framework.response import Response
 
 

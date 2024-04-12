@@ -1,9 +1,9 @@
 from adjutant.actions.utils import validate_steps
-from adjutant.actions.v1 import serializers
 from adjutant.actions.v1.base import BaseAction, ProjectMixin
 from adjutant.common import openstack_clients, user_store
 
 from designateclient.v2 import client as designateclient
+from rest_framework import serializers
 
 
 class NewDefaultZoneSerializer(serializers.Serializer):
