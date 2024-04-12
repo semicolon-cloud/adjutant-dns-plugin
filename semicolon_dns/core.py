@@ -4,7 +4,7 @@ from semicolon_dns.default_zone import NewDefaultZoneAction
 from semicolon_dns.requested_zone import NewZoneAction, RequestNewZone, CreateZoneAPI
 
 
-class MyFeatureSet(BaseFeatureSet):
+class DNSPlugin(BaseFeatureSet):
 
     actions = [
         NewDefaultZoneAction,
