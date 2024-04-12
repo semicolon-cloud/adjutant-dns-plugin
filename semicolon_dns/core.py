@@ -18,3 +18,5 @@ class DNSPlugin(BaseFeatureSet):
     delegate_apis = [
         CreateZoneAPI,
     ]
+
+    print("DNS Plugin Loaded")
