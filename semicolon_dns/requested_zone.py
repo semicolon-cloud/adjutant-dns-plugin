@@ -53,7 +53,7 @@ class NewZoneAction(BaseAction, ProjectMixin):
         self.action.valid = validate_steps(
             [
                 self._validate_region,
-                self._validate_domainname,
+                self._validate_domain_name,
                 self._validate_project_id,
             ]
         )
@@ -64,7 +64,7 @@ class NewZoneAction(BaseAction, ProjectMixin):
         self.action.valid = validate_steps(
             [
                 self._validate_region,
-                self._validate_domainname,
+                self._validate_domain_name,
                 self._validate_project_id,
             ]
         )
