@@ -179,6 +179,7 @@ class CreateZoneAPI(BaseDelegateAPI):
         as well as the current status of a specified region's quotas.
         """
 
+        self.project_id = request.keystone_user["project_id"]
         response_tasks = self.get_active_quota_tasks()
 
         return Response(
