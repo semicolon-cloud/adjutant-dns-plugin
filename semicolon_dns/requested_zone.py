@@ -96,7 +96,6 @@ class NewZoneAction(BaseAction, ProjectMixin):
             )
 
     def _approve(self):
-        self.project_id = self.action.task.cache.get("project_id", None)
         self._validate()
 
         if self.valid:
