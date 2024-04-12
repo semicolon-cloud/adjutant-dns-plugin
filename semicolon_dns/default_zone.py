@@ -7,14 +7,12 @@ from rest_framework import serializers
 
 
 class NewDefaultZoneSerializer(serializers.Serializer):
-    project_id = serializers.CharField(max_length=64)
     region = serializers.CharField(max_length=100)
     email = serializers.EmailField()
 
 
 class NewDefaultZoneAction(BaseAction, ProjectMixin):
     required = [
-        "project_id",
         "region",
         "email"
     ]
@@ -79,6 +77,7 @@ class NewDefaultZoneAction(BaseAction, ProjectMixin):
             )
 
     def _approve(self):
+        self.project_id = self.action.task.cache.get("project_id", None)
         self._validate()
 
         if self.valid:
