@@ -7,7 +7,6 @@ from rest_framework import serializers
 
 
 class NewDefaultZoneSerializer(serializers.Serializer):
-    setup_zone = serializers.BooleanField(default=True)
     project_id = serializers.CharField(max_length=64)
     region = serializers.CharField(max_length=100)
     email = serializers.EmailField()
@@ -17,7 +16,6 @@ class NewDefaultZoneAction(BaseAction, ProjectMixin):
     required = [
         "project_id",
         "region",
-        "setup_zone",
         "email"
     ]
 
@@ -81,10 +79,9 @@ class NewDefaultZoneAction(BaseAction, ProjectMixin):
             )
 
     def _approve(self):
-        self.project_id = self.action.task.cache.get("project_id", None)
         self._validate()
 
-        if self.setup_zone and self.valid:
+        if self.valid:
             self._create_zone()
 
     def _submit(self, token_data, keystone_user=None):
